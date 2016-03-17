@@ -15,6 +15,7 @@ var AppModel = Backbone.Model.extend({
 
     params.library.on('play', function(song) {
       this.set('currentSong', song);
+      console.dir(this);
     }, this);
 
     // I want the controller to give me information about which model is being acted on
@@ -22,7 +23,13 @@ var AppModel = Backbone.Model.extend({
     // this.songQueue
 
     params.library.on('enqueue', function(song) {
+      console.log(song, this.get('songQueue'));
       this.get('songQueue').add(song);
+    }, this);
+
+    this.get('songQueue').on('dequeue', function(song) {
+      this.set('currentSong', song);
+      // this.get('songQueue').remove(song);
     }, this);
   }
 

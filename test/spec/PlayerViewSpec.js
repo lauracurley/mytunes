@@ -32,12 +32,13 @@ describe('PlayerView', function() {
   });
 
   describe('Song transitions', function() {
-    xit('dequeues a song when finished playing & plays the next song', function() {
+    it('dequeues a song when finished playing & plays the next song', function() {
       var firstSong = library.at(0);
       var secondSong = library.at(1);
       var thirdSong = library.at(2);
       var songQueue = appView.model.get('songQueue');
       // Set up a queue of three songs
+      debugger;
       songQueue.add(firstSong);
       songQueue.add(secondSong);
       songQueue.add(thirdSong);
