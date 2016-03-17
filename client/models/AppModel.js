@@ -16,6 +16,14 @@ var AppModel = Backbone.Model.extend({
     params.library.on('play', function(song) {
       this.set('currentSong', song);
     }, this);
+
+    // I want the controller to give me information about which model is being acted on
+    // then the appmodel "queue the next song" when an enqueue event is fired
+    // this.songQueue
+
+    params.library.on('enqueue', function(song) {
+      this.get("songQueue").add(song);
+    }, this);
   }
 
 });
