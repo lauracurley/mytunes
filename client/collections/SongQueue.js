@@ -13,14 +13,14 @@ var SongQueue = Songs.extend({
       // this.trigger('dequeue', this.remove(this.at(0)));
       // this.trigger(playFirst);
       console.log("fired!");
-      this.at(0).dequeue();
+      this.at(0).dequeue(); //this.at(0).dequeue(this.at(0));
       if (this.at(0)) {
         this.playFirst.call(this);
       }
     });
 
-    this.on('dequeue', function() {
-      this.remove(this.at(0));
+    this.on('dequeue', function(which) {
+      this.remove(which);
       console.log(this);
     });
 
