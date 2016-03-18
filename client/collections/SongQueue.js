@@ -25,7 +25,7 @@ var SongQueue = Songs.extend({
     });
 
     this.on('enqueue', function() {
-      this.remove(this.at(0));
+      // this.remove(this.at(0));
     });
 
   },
